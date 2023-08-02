@@ -30,7 +30,7 @@ public class CustomerServiceImplementation implements CustomerServiceInterface {
 		
 		if(cus==null) throw new CustomerException("Not any customer found for this specific customertId");
 		
-		return customerRepositry.save(cus);;
+		return customerRepositry.save(cus.get());
 	}
 
 	@Override
