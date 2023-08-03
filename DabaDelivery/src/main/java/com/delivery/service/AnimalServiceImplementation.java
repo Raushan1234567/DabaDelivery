@@ -44,7 +44,7 @@ public class AnimalServiceImplementation implements AnimalServiceInterface {
 	public String deleteAnimalMedcineById(Integer animalMedicineId) {
 		// TODO Auto-generated method stub
 		medicineRepositry.deleteById(animalMedicineId);
-		return animalMedicineId+"Animal Medicine Id Delete";
+		return "Animal medicine Id "+ animalMedicineId  + " deleted successfully";
 	}
 
 }
