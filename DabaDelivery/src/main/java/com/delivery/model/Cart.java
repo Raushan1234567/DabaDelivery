@@ -29,9 +29,9 @@ public class Cart {
 	@JoinColumn(name = "customer_Id")
 	private Customer customer;
 	
-	@OneToMany(mappedBy = "cart")
-	@JsonIgnore
-	private List<CartItems> itemsList=new ArrayList<>();
+	@OneToMany
+	//@JsonIgnore
+	private List<Medicine> itemsList=new ArrayList<>();
 	
 	
 	

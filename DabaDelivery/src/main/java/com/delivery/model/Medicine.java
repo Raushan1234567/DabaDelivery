@@ -1,7 +1,6 @@
 package com.delivery.model;
 import java.sql.Date;
 
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +13,6 @@ import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 
 @Data
 @AllArgsConstructor
@@ -30,12 +27,12 @@ public class Medicine {
 	@NotNull
 	private String medcineName;
 	
-	
 	private double price;
 	
+	private String categpry;
 	@PastOrPresent(message = "Manufacture date must be past or present")
 	private Date manufactureDate;
 	
 	@Future(message = "Date should be future")
-	private Date ExpiryDate;
+	private Date expiryDate;
 }
