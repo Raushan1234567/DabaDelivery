@@ -26,11 +26,12 @@ public class Cart {
 	private int cartId;
 	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name = "customer_Id")
 	private Customer customer;
 	
 	@OneToMany
-	//@JsonIgnore
+@JsonIgnore
 	private List<Medicine> itemsList=new ArrayList<>();
 	
 	

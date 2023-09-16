@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.delivery.exception.CartException;
 import com.delivery.model.Cart;
+import com.delivery.model.Customer;
 import com.delivery.model.Medicine;
 import com.delivery.repositry.CartRepositry;
+import com.delivery.repositry.CustomerRepositry;
 import com.delivery.repositry.MedicineRepositry;
 
 @Service
@@ -17,10 +19,16 @@ public class CartServiceImplementation implements CartServiceInterface {
 	@Autowired
 	private CartRepositry cartRepositry;
 	@Autowired
+	private CustomerRepositry cust;
+	
+	@Autowired
 	private MedicineRepositry medicineRepositry;
 	@Override
-	public Cart addToCart(Cart cart) {
+	public Cart addToCart(Cart cart,Integer customerId) {
+	Optional<Customer> ct=cust.findById(customerId);
+	cart.setCustomer(ct.get());
 		cartRepositry.save(cart);
+		
 		return cart;
 	}
 
