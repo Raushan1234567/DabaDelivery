@@ -21,9 +21,9 @@ public class CartController {
 	@Autowired
 	private CartServiceInterface cartServiceInterface;
 	
-	@PostMapping("/cart")
-	public ResponseEntity<Cart> addCart(@Valid @RequestBody Cart cart){
-		return new ResponseEntity<Cart>(cartServiceInterface.addToCart(cart),HttpStatus.CREATED);
+	@PostMapping("/cart/{customerId}")
+	public ResponseEntity<Cart> addCart(@Valid @RequestBody Cart cart,@PathVariable Integer customerId){
+		return new ResponseEntity<Cart>(cartServiceInterface.addToCart(cart,customerId),HttpStatus.CREATED);
 	}
 	@PostMapping("/addToCart/{cartId}/{medicineId}")
 	public ResponseEntity<Cart> addMedcine(@PathVariable Integer medicineId, @PathVariable Integer cartId){

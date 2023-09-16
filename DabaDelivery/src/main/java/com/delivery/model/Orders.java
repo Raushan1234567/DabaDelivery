@@ -1,5 +1,6 @@
 package com.delivery.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -25,6 +26,7 @@ public class Orders {
 	
 	
 	@OneToOne
+	@JsonIgnore
 	private  Payment paymentId;
 	
 	@ManyToOne
