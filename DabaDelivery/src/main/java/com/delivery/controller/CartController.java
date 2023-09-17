@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +30,15 @@ public class CartController {
 	public ResponseEntity<Cart> addMedcine(@PathVariable Integer medicineId, @PathVariable Integer cartId){
 		return new ResponseEntity<Cart>(cartServiceInterface.addMed(medicineId,cartId),HttpStatus.CREATED);
 	}
+	
 	@GetMapping("/carts")
 	public ResponseEntity<List<Cart>> getMedcine(){
 		return new ResponseEntity<List<Cart>>(cartServiceInterface.getMed(),HttpStatus.CREATED);
 	}
+	
+	@DeleteMapping("/carts/{cartId}/{medicineId}")
+	public ResponseEntity<Cart> deleteMedcine(@PathVariable Integer cartId,@PathVariable Integer medicineId ){
+		return new ResponseEntity<Cart>(cartServiceInterface.deleteMed(medicineId,cartId),HttpStatus.CREATED);
+	}
 }
+

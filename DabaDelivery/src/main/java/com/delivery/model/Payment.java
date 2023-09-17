@@ -1,5 +1,7 @@
 package com.delivery.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,5 +21,6 @@ public class Payment {
 	private int paymentId;
 	
 	@OneToOne
+	@JsonIgnore
 	private Orders orderId;
 }
