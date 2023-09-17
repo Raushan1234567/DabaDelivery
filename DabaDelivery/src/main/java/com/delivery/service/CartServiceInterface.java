@@ -13,4 +13,6 @@ public interface CartServiceInterface {
 
 	List<Cart> getMed();
 
+	Cart deleteMed(Integer medicineId, Integer cartId);
+
 }

@@ -27,9 +27,10 @@ public class Orders {
 	
 	@OneToOne
 	@JsonIgnore
-	private  Payment paymentId;
+	private Payment paymentId;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "customer_Id")
 	private Customer customer;
 }

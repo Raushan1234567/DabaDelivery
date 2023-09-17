@@ -53,4 +53,25 @@ public class CartServiceImplementation implements CartServiceInterface {
 		return a;
 	}
 
+	@Override
+	public Cart deleteMed(Integer medicineId, Integer cartId) {
+		Optional<Cart> c=cartRepositry.findById(cartId);
+		
+		 if(c.isEmpty())
+			 throw new CartException("cart Not Found");
+		 Cart car=c.get();
+		 int l=0;
+		 for(Medicine m: car.getItemsList()) {
+			if(m.getMedicineId()!=medicineId) {
+				l++;
+			}else {
+				break;
+			}
+			
+		 }
+		car.getItemsList().remove(l);
+		cartRepositry.save(car);
+		return car;
+	}
+
 }
